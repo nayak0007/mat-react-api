@@ -4,10 +4,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.matreact.matreact.model.MetaProps;
+import com.matreact.matreact.model.PostRequest;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -19,7 +21,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/fetchmeta")
-	public MetaProps fetchMeta() {
+	public MetaProps fetchMeta(@RequestBody PostRequest pr) {
 		MetaProps response =  new MetaProps();
 		response.setTitle("Property Home");
 		response.setDescription("This is a test site for testing angular universal app and meta tag visibility");
